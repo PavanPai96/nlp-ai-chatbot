@@ -1,0 +1,48 @@
+{
+  "intents": [
+    {
+      "tag": "timesheet",
+      "patterns": [
+        "Where do i fill my timesheet?",
+        "whats the link of timesheet page?",
+        "where is my timesheet module?"
+      ],
+      "responses": [
+        "Link to TS module: https://everest.gale.agency/timeSheetChange/"
+      ]
+    },
+    {
+      "tag": "vacation",
+      "patterns": [
+        "How to fill my vacation?",
+        "Where is vacantion module located",
+        "My vacantions",
+        "My Vacation balance?"
+      ],
+      "responses": [
+        "Bottom of page Tile - (My Time Off): https://everest.gale.agency/home/"
+      ]
+    },
+    {
+      "tag": "vacation balance",
+      "patterns": [
+        "My Vacation balance?",
+        "how many days i have my vacation left with?"
+      ],
+      "responses": [
+        "Everest api to get current logged in employee's vacation balance"
+      ]
+    },
+    {
+      "tag": "Question Category TAG Sample1",
+      "patterns": [
+        "Diff question patterns for this Sample1-1??",
+        "Diff question patterns for this Sample1-2??"
+      ],
+      "responses": [
+        "Responses of above question patterns-1",
+        "Responses of above question patterns-2"
+      ]
+    }
+  ]
+}
