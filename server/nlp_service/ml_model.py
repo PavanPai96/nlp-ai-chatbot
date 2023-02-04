@@ -12,6 +12,7 @@ try:
     from nltk.stem import WordNetLemmatizer
     from keras import optimizers, Sequential
     from keras.layers import Dense, Dropout
+    import os
 
     nltk.download("punkt")
     nltk.download("wordnet")
@@ -20,7 +21,8 @@ except Exception as ex:
 
 chat_data_input = []
 
-with open('data/bot-training-data.json') as file:
+dir_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+with open(dir_path + '/data/bot-training-data.json') as file:
     chat_data_input = json.load(file)
 
 lm = WordNetLemmatizer()  # for getting words

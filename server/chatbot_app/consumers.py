@@ -1,9 +1,12 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 from nlp_service.ml_model import answer_me
-
+from API.vacation_details_api import VacationDetails
 
 class ChatRoomConsumer(AsyncWebsocketConsumer):
+    def __init__(self):
+        super().__init__(self, AsyncWebsocketConsumer)
+        self.vacation_details = VacationDetails()
     async def connect(self):
         self.chat_box_name = self.scope["url_route"]["kwargs"]["chat_box_name"]
         self.group_name = "chat_%s" % self.chat_box_name
@@ -35,6 +38,8 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
         message = event["message"]
         username = event["username"]
         answer = answer_me(message)
+        if "VACATION_DETAILS" in answer:
+            answer = self.vacation_details.send_vacation_details("", "")
         # send message and username of sender to websocket
         await self.send(
             text_data=json.dumps(
