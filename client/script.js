@@ -29,6 +29,10 @@ chatSocket.onmessage = function (e) {
   writeResponse(data.message, recieverClass, 'http://127.0.0.1:5500/images/sample.png')
 }
 
+chatSocket.onclose = function(e) {
+  writeResponse('Connection closed', recieverClass, 'http://127.0.0.1:5500/images/sample.png')
+};
+
 /**
  * Creates a new paragraph with a specific class, adds the specified text to it,
  * and then appends it to the messages div. 
