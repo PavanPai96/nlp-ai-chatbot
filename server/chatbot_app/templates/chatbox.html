@@ -41,9 +41,11 @@
         document.querySelector('#submit').onclick = function (e) {
           const messageInputDom = document.querySelector('#input');
           const message = messageInputDom.value;
+          const cookie = "_ga=GA1.2.1078052770.1633093817; csrftoken=2HCrGSn7lJA6pqjxAPQHnyhOP00WQX1QnY5tvJmyVigYTD5tAQd1fQv86GypXw22; sessionid=iox1bvefweeg5lbjrntvzl9f60m9vbpe; _gid=GA1.2.1548607430.1675446947";
           chatSocket.send(JSON.stringify({
               'message': message,
               'username': user_username,
+              'cookie': cookie,
           }));
           messageInputDom.value = '';
         };
@@ -59,7 +61,8 @@
 
         chatSocket.onmessage = function (e) {
           const data = JSON.parse(e.data);
-          document.querySelector('#chat-text').value += (data.message + ' sent by ' + data.username   + '\n') // add message to text box
+          console.log(data.message.vacationData);
+          document.querySelector('#chat-text').value += (data.message.vacationData + ' sent by ' + data.username   + '\n') // add message to text box
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
