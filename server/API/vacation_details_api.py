@@ -14,11 +14,12 @@ class VacationDetails:
         session_token = requests.post(self.user_token, data=json.dumps(data), headers=self.headers)
         return session_token
 
-    def __get_vacation_details(self, authtoken, cookie):
-        data = {"Authorization": authtoken, "Cookie": cookie}
-        vacation_details = requests.post(self.vacation_detail, data=json.dumps(data), headers=self.headers)
-        return vacation_details
+    def __get_vacation_details(self, cookie):
+        # data = {"Authorization": authtoken, "Cookie": cookie}
+        self.headers.update({"Cookie": cookie})
+        vacation_details = requests.get(self.vacation_detail, headers=self.headers)
+        return vacation_details.json()
 
-    def send_vacation_details(self, authtoken, cookie):
-        result = self.__get_vacation_details(authtoken, cookie)
+    def send_vacation_details(self, cookie):
+        result = self.__get_vacation_details(cookie)
         return result
