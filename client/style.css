@@ -154,12 +154,37 @@ body {
 #send-container {
     display: flex;
     padding: 15px;
+    position: relative;
 }
 
 input#message-input {
     padding: 15px 10px;
-    flex-basis: 70%;
+    flex-basis: 100%;
     border: 1px solid;
+    border-radius: 3px;  
+    font-size: 14px;
+}
+
+span#interim {
+    position: absolute;
+    left: 25px;
+    top: 30px;
+    display: inline-block;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.speach-btn {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
 
 input#message-input:focus {
@@ -191,6 +216,7 @@ input#message-input:focus {
     position: relative;
     font-size: 14px;
     margin-left: 20px;
+    line-height: 20px;
 }
 #message-container > p img {
     width: 20px;
@@ -266,3 +292,33 @@ input#message-input:focus {
     box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.15), 0 5px 4px 0 rgba(0, 0, 0, 0.26);
     cursor: pointer;
 }
+.circle {
+    background-color: #061f38;
+    border-radius: 50%;
+    height: 150%;
+    opacity: 0;
+    position: absolute;
+    width: 150%;
+  }
+.listening .circle{
+    animation: growAndFade 3s infinite ease-out;
+}
+  .circle.c1 {
+    animation-delay: 1s;
+  }
+  .circle.c2 {
+    animation-delay: 2s;
+  }
+  .circle.c3 {
+    animation-delay: 3s;
+  }
+@keyframes growAndFade {
+    0% {
+      opacity: 0.75;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }

@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    <script defer src="speechRecognition.js"></script>
 
 </head>
 
@@ -28,7 +29,14 @@
         <div id="message-container" class="message-container"></div>
         <div id="send-container">
             <input type="text" id="message-input" autocomplete="off" onkeydown="onType(event)">
-            <button type="button" id="send-button" onclick="sendChatMessage();">Send</button>
+            <button type="button" id="send-button" onclick="sendChatMessage();" style="display: none;">Send</button>
+            <div class="speach-btn" id="start">
+                <i class="fas fa-microphone"></i>
+                <div class="circle c1"></div>
+                <div class="circle c2"></div>
+                <div class="circle c3"></div>
+            </div>
+            <span id="interim" style="display: none"></span>
         </div>
     </div>
 
