@@ -14,6 +14,7 @@ if ("webkitSpeechRecognition" in window) {
     speechRecognition.onstart = () => {
         // Show the Status Element
         document.querySelector("#start").classList.add('listening');
+        document.querySelector("#message-input").placeholder= 'Please speak to type here...';
     };
     speechRecognition.onerror = () => {
         // Hide the Status Element
@@ -28,6 +29,7 @@ if ("webkitSpeechRecognition" in window) {
     speechRecognition.onresult = (event) => {
         // Create the interim transcript string locally because we don't want it to persist like final transcript
         let interim_transcript = "";
+        document.querySelector("#message-input").placeholder = '';
         document.querySelector("#interim").style.display = "block";
         // Loop through the results from the speech recognition object.
         for (let i = event.resultIndex; i < event.results.length; ++i) {

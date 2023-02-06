@@ -12,6 +12,7 @@ const authToken = '';
 // Sender - receiver Class
 const senderClass = 'sender';
 const recieverClass = 'receiver';
+const robotImage = 'http://127.0.0.1:5500/images/robot.jpg';
 
 chatBtn.addEventListener("click", function(e){
   checkConnection();
@@ -26,11 +27,11 @@ minimiseBtn.addEventListener("click", function(e){
 
 chatSocket.onmessage = function (e) {
   const data = JSON.parse(e.data);
-  writeResponse(data.message, recieverClass, 'http://127.0.0.1:5500/images/sample.png')
+  writeResponse(data.message, recieverClass, robotImage)
 }
 
 chatSocket.onclose = function(e) {
-  writeResponse('Connection closed', recieverClass, 'http://127.0.0.1:5500/images/sample.png')
+  writeResponse('Connection closed', recieverClass, robotImage)
 };
 
 /**
@@ -57,7 +58,7 @@ chatSocket.onclose = function(e) {
  */
 function checkConnection(){
   if (chatSocket !== null && chatSocket.readyState === WebSocket.OPEN) {
-    writeResponse('Connected to chatbot', recieverClass, 'http://127.0.0.1:5500/images/sample.png')
+    writeResponse('Connected to chatbot', recieverClass, robotImage)
   }
 }
 
