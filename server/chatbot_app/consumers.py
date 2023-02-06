@@ -1,6 +1,6 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
-from nlp_service.ml_model import answer_me
+from nlp_service.ml_model import NLPEngine
 from API.vacation_details_api import VacationDetails
 
 
@@ -42,7 +42,9 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
         message = event["message"]
         username = event["username"]
         cookie = event["cookie"]
-        answer = answer_me(message)
+        nlpObj = NLPEngine()
+        nlpObj.TrainModel()
+        answer = nlpObj.answer_me(message)
         if "VACATION_DETAILS" in answer:
             answer = self.vacation_details.send_vacation_details(cookie)
         # send message and username of sender to websocket

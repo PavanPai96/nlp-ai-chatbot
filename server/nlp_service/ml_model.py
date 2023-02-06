@@ -155,7 +155,8 @@ class NLPEngine():
         self.documentY = []
         self.lm=None
 
-        self.lm = WordNetLemmatizer()  # for getting words
+        self.lm = WordNetLemmatizer()  # for glemmetizing the words
+
         dir_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
         with open(dir_path + '/data/bot-training-data.json') as file:
             self.chat_data_input = json.load(file)
@@ -178,7 +179,9 @@ class NLPEngine():
         newWords = sorted(set(newWords))  # sorting words
         ourClasses = sorted(set(ourClasses))  # sorting classes
 
-    
+
+
+        
     def __train_Model(self):
         trainingData = []  # training list array
         outEmpty = [0] * len(self.ourClasses)
@@ -201,13 +204,13 @@ class NLPEngine():
         self.y = num.array(list(trainingData[:, 1]))  # second training phase
 
         # defining some parameters
-        self.iShape = (len(x[0]),)
-        self.oShape = len(y[0])
+        self.iShape = (len(self.x[0]),)
+        self.oShape = len(self.y[0])
     
     def __fit_Model(self):
         # the deep learning model
         self.seqModel = Sequential()
-        self.seqModel.add(Dense(128, input_shape=iShape, activation="relu"))
+        self.seqModel.add(Dense(128, input_shape=self.iShape, activation="relu"))
         self.seqModel.add(Dropout(0.5))
         self.seqModel.add(Dense(64, activation="relu"))
         self.seqModel.add(Dropout(0.3))
@@ -225,7 +228,7 @@ class NLPEngine():
         newtkns = [self.lm.lemmatize(word) for word in newtkns]
         return newtkns
 
-
+    # BOW strategy
     def __BagOfWord(self, text, vocab):
         newtkns = self.__ourText(text)
         bagOwords = [0] * len(vocab)
@@ -260,8 +263,13 @@ class NLPEngine():
 
     
     def TrainModel(self):
+        # Lemmetize the corpus source
         self.__lemmetize_Corpus()
+
+        # Train the model
         self.__train_Model()
+        
+        # Fit the trained sequential model
         self.__fit_Model()
 
     
@@ -270,7 +278,7 @@ class NLPEngine():
         intents = self.__prediction_class(question, self.newWords, self.urClasses)
         ourResult = self.getRes(intents, self.chat_data_input)
         print(ourResult)
-        return ourResult 
+        return ourResult
 
     
 
