@@ -5,9 +5,13 @@ from API.vacation_details_api import VacationDetails
 
 
 class ChatRoomConsumer(AsyncWebsocketConsumer):
+    nlpObj = None
+    
     def __init__(self):
         super().__init__(self, AsyncWebsocketConsumer)
         self.vacation_details = VacationDetails()
+        self.nlpObj = NLPEngine()
+        self.nlpObj.trainModel()
 
     async def connect(self):
         self.chat_box_name = self.scope["url_route"]["kwargs"]["chat_box_name"]
@@ -42,9 +46,7 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
         message = event["message"]
         username = event["username"]
         cookie = event["cookie"]
-        nlpObj = NLPEngine()
-        nlpObj.TrainModel()
-        answer = nlpObj.answer_me(message)
+        answer = self.nlpObj.answer_me(message)
         if "VACATION_DETAILS" in answer:
             answer = self.vacation_details.send_vacation_details(cookie)
         # send message and username of sender to websocket

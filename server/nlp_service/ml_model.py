@@ -2,7 +2,7 @@
 """
 Creating ChatBot Using Natural Language Processing in Python
 """
-
+from autocorrect import Speller
 import json
 import string
 import random
@@ -146,6 +146,7 @@ class NLPEngine():
     lm=None
 
     def __init__(self) -> None:
+        self.spell = Speller()
         self.iShape=0
         self.oShape=0
         self.chat_data_input=[]
@@ -167,26 +168,26 @@ class NLPEngine():
         for intent in self.chat_data_input["intents"]:
             for pattern in intent["patterns"]:
                 ourTokens = nltk.word_tokenize(pattern)
-                newWords.extend(ourTokens)
+                self.newWords.extend(ourTokens)
                 self.documentX.append(pattern)
                 self.documentY.append(intent["tag"])
 
-            if intent["tag"] not in ourClasses:  # add unexisting tags to their respective classes
-                ourClasses.append(intent["tag"])
+            if intent["tag"] not in self.ourClasses:  # add unexisting tags to their respective classes
+                self.ourClasses.append(intent["tag"])
 
-        newWords = [self.lm.lemmatize(word.lower()) for word in newWords if
+        newWords = [self.lm.lemmatize(word.lower()) for word in self.newWords if
                     word not in string.punctuation]  # set words to lowercase if not in punctuation
         newWords = sorted(set(newWords))  # sorting words
-        ourClasses = sorted(set(ourClasses))  # sorting classes
+        ourClasses = sorted(set(self.ourClasses))  # sorting classes
 
 
 
-        
+
     def __train_Model(self):
         trainingData = []  # training list array
         outEmpty = [0] * len(self.ourClasses)
 
-        # BOW model
+        # BOW model applied here
         for idx, doc in enumerate(self.documentX):
             bagOfwords = []
             text = self.lm.lemmatize(doc.lower())
@@ -241,18 +242,20 @@ class NLPEngine():
 
     def __prediction_class(self, text, vocab, labels):
         bagOwords = self.__BagOfWord(text, vocab)
+        # Utilize sequential model trained above to predict results based on bag of words
         ourResult = self.seqModel.predict(num.array([bagOwords]))[0]
         newThresh = 0.2
         yp = [[idx, res] for idx, res in enumerate(ourResult) if res > newThresh]
 
         yp.sort(key=lambda x: x[1], reverse=True)
+
         newList = []
         for r in yp:
             newList.append(labels[r[0]])
         return newList
 
 
-    def getRes(firstlist, fJson):
+    def getRes(self, firstlist, fJson):
         tag = firstlist[0]
         listOfIntents = fJson["intents"]
         for i in listOfIntents:
@@ -262,7 +265,7 @@ class NLPEngine():
         return ourResult
 
     
-    def TrainModel(self):
+    def trainModel(self):
         # Lemmetize the corpus source
         self.__lemmetize_Corpus()
 
@@ -275,10 +278,15 @@ class NLPEngine():
     
     def answer_me(self, question: str) -> str:
         print('Question inouting - >'.format(question))
-        intents = self.__prediction_class(question, self.newWords, self.urClasses)
+        print(f"Question before spell check {question}")
+        question = self.spell(question)
+        print(f"Question after spell check {question}")
+        # Predict the intents based on question asked in data corpus
+        intents = self.__prediction_class(question, self.newWords, self.ourClasses)
+
+        # get predcited response based on intents above.
         ourResult = self.getRes(intents, self.chat_data_input)
+
         print(ourResult)
         return ourResult
-
-    
 
