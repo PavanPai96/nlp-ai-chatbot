@@ -53,7 +53,7 @@
         const boxName = JSON.parse(document.getElementById('room-name').textContent);
         const chatSocket = new WebSocket(
         'ws://' +
-        window.location.host +
+        'http://54.201.3.185:8000' +
         '/ws/chat/' +
         boxName +
         '/'
@@ -61,8 +61,7 @@
 
         chatSocket.onmessage = function (e) {
           const data = JSON.parse(e.data);
-          console.log(data.message.vacationData);
-          document.querySelector('#chat-text').value += (data.message.vacationData + ' sent by ' + data.username   + '\n') // add message to text box
+          document.querySelector('#chat-text').value += (data.message + ' sent by ' + data.username   + '\n') // add message to text box
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
