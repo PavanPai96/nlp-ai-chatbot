@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from chatbot_app.views import chat_box
+from chatbot_app.views import chat_box, final_chat_bot
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('chatbot_api/', include("chatbot_app.urls")),
     path("chat/<str:chat_box_name>/", chat_box, name="chat"),
-
+    path("chatbot/<str:chat_box_name>/", final_chat_bot, name="final_chat_bot"),
 ]

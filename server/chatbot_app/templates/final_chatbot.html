@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css"
+        integrity="sha512-3M00D/rn8n+2ZVXBO9Hib0GKNpkm8MSUU/e2VNthDyBYxKWG+BftNYYcuEjXlyrSO637tidzMBXfE7sQm0INUg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <script defer src="{% static 'js/script.js'%}"></script>
+    <script defer src="{% static 'js/speechRecognition.js'%}"></script>
+    <script>
+        const robotImage = "{% static 'images/robot.jpg'%}";
+        const userImage = "{% static 'images/sample.png'%}";
+    </script>
+</head>
+
+<body>
+
+    <div class="msg-wrap" id="chat-container">
+        <div class="chat-header">
+            <div class="logo"><i class="far fa-comments"></i> Ask EVE</div>
+            <div class="minimise-btn" id="minimise-btn"><i class="fas fa-window-minimize"></i></div>
+        </div>
+        <div class="skewBG"></div>
+        <div id="message-container" class="message-container"></div>
+        <div id="send-container">
+            <input type="text" id="message-input" autocomplete="off" onkeydown="onType(event)" placeholder="Enter your message here...">
+            <button type="button" id="send-button" onclick="sendChatMessage();" style="display: none;">Send</button>
+            <div class="speach-btn" id="start">
+                <i class="fas fa-microphone"></i>
+                <div class="circle c1"></div>
+                <div class="circle c2"></div>
+                <div class="circle c3"></div>
+            </div>
+            <span id="interim" style="display: none"></span>
+        </div>
+    </div>
+
+    <div class="chat-btn" id="chat-btn"><i class="far fa-comments"></i></div>
+
+</body>
+
+</html>

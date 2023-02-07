@@ -53,7 +53,7 @@
         const boxName = JSON.parse(document.getElementById('room-name').textContent);
         const chatSocket = new WebSocket(
         'ws://' +
-        'http://54.201.3.185:8000' +
+        window.location.host +
         '/ws/chat/' +
         boxName +
         '/'

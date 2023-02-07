@@ -1,0 +1,216 @@
+{
+    "vacationData": [
+        {
+            "id": 24661,
+            "startDate": "2023-02-08",
+            "endDate": "2023-02-10",
+            "startDateSort": "2023-02-08",
+            "dates": [
+                {
+                    "date": "2023-02-08",
+                    "time": 1
+                },
+                {
+                    "date": "2023-02-09",
+                    "time": 1
+                },
+                {
+                    "date": "2023-02-10",
+                    "time": 1
+                }
+            ],
+            "status": "Submitted",
+            "employee": {
+                "id": 14433758,
+                "empId": "E-00327",
+                "first_name": "Nitya",
+                "last_name": "Krishnamoorthy",
+                "manager_name": "Sanjay Krishnamurthy"
+            },
+            "geoLocation": {
+                "id": 4,
+                "city": "Bangalore"
+            },
+            "working_hrs": 8,
+            "vacationType": {
+                "id": 5,
+                "name": "Vacation (20 days)",
+                "policy_amount": 20,
+                "frequency": "Monthly",
+                "is_unlimited_policy": false
+            },
+            "comments": "ok",
+            "managersComment": null,
+            "employeeEmail": "nitya.krishnamoorthy@galepartners.com",
+            "availableIfApproved": 16.17,
+            "vacationAdmins": [
+                {
+                    "name": "Dipti Vijay Kant",
+                    "email": "dipti.kant@galepartners.com"
+                },
+                {
+                    "name": "Geetha Shamanna",
+                    "email": "geetha.shamanna@galepartners.com"
+                },
+                {
+                    "name": "Nitya Krishnamoorthy",
+                    "email": "nitya.krishnamoorthy@galepartners.com"
+                },
+                {
+                    "name": "Anil Fredrick",
+                    "email": "anil.fredrick@galepartners.com"
+                }
+            ],
+            "employeeId": "E-00327"
+        },
+        {
+            "id": 24660,
+            "startDate": "2023-02-01",
+            "endDate": "2023-02-03",
+            "startDateSort": "2023-02-01",
+            "dates": [
+                {
+                    "date": "2023-02-01",
+                    "time": 1
+                },
+                {
+                    "date": "2023-02-02",
+                    "time": 1
+                },
+                {
+                    "date": "2023-02-03",
+                    "time": 1
+                }
+            ],
+            "status": "Submitted",
+            "employee": {
+                "id": 14433758,
+                "empId": "E-00327",
+                "first_name": "Nitya",
+                "last_name": "Krishnamoorthy",
+                "manager_name": "Sanjay Krishnamurthy"
+            },
+            "geoLocation": {
+                "id": 4,
+                "city": "Bangalore"
+            },
+            "working_hrs": 8,
+            "vacationType": {
+                "id": 11,
+                "name": "Other Time Off",
+                "policy_amount": 150,
+                "frequency": "Monthly",
+                "is_unlimited_policy": false
+            },
+            "comments": "fg",
+            "managersComment": null,
+            "employeeEmail": "nitya.krishnamoorthy@galepartners.com",
+            "availableIfApproved": 150,
+            "vacationAdmins": [
+                {
+                    "name": "Dipti Vijay Kant",
+                    "email": "dipti.kant@galepartners.com"
+                },
+                {
+                    "name": "Geetha Shamanna",
+                    "email": "geetha.shamanna@galepartners.com"
+                },
+                {
+                    "name": "Nitya Krishnamoorthy",
+                    "email": "nitya.krishnamoorthy@galepartners.com"
+                },
+                {
+                    "name": "Anil Fredrick",
+                    "email": "anil.fredrick@galepartners.com"
+                }
+            ],
+            "employeeId": "E-00327"
+        }
+    ],
+    "accuredData": {
+        "total_remaining": 19.17,
+        "total_carry_over_for_next_year": {
+            "Vacation (20 days)": 19.17
+        },
+        "listAllVacationPolicy": [
+            {
+                "key": 5,
+                "value": 5,
+                "text": "Vacation (20 days)",
+                "frequency": "Monthly",
+                "remaining": 19.17,
+                "disabled": false,
+                "is_unlimited_policy": false
+            },
+            {
+                "key": 11,
+                "value": 11,
+                "text": "Other Time Off",
+                "frequency": "Monthly",
+                "remaining": 150,
+                "disabled": false,
+                "is_unlimited_policy": false
+            }
+        ],
+        "vacation_breakdown_data_list": [
+            {
+                "carry_over": {
+                    "time_off_type": "Carry-Over (from 2021)",
+                    "carry_used": 0,
+                    "carry_remaining": 0,
+                    "carry_obtained": 0,
+                    "carry_lapsed": 0,
+                    "carry_scheduled": 0
+                },
+                "accrued_obtained": 19.17,
+                "accrued_used": 0,
+                "accrued_remaining": 19.17,
+                "loa_value": 0,
+                "total_remaining": 19.17,
+                "is_unlimited_policy": false,
+                "time_off_type": "Vacation (20 days)",
+                "vacation_policy_id": 5,
+                "policy_type": "Monthly",
+                "scheduled": 0
+            }
+        ],
+        "vacation_breakdown_data_list_total": {
+            "carry_obtained": 0,
+            "carry_lapsed": 0,
+            "carry_used": 0,
+            "carry_remaining": 0,
+            "accrued_obtained": 19.17,
+            "accrued_used": 0,
+            "accrued_remaining": 19.17,
+            "time_off_type": "TOTAL",
+            "scheduled": 0,
+            "carry_scheduled": 0,
+            "total_remaining": 19.17
+        },
+        "other_vacation_policy_breakdown_data": [
+            {
+                "time_off_type": "Other time off",
+                "pending_days_count": 0,
+                "used_days_count": 0
+            },
+            {
+                "time_off_type": "LOP (unpaid) time off",
+                "pending_days_count": 0,
+                "used_days_count": 0
+            },
+            {
+                "time_off_type": "Sick days",
+                "pending_days_hrs": 0,
+                "pending_days_count": 0,
+                "used_days_hrs": 67,
+                "used_days_count": 11
+            }
+        ],
+        "accrual_rate": {
+            "total": 20,
+            "value": 1.67
+        },
+        "manager": "Sanjay Krishnamurthy"
+    },
+    "working_hrs": 8
+}

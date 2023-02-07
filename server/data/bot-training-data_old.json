@@ -1,0 +1,227 @@
+{
+  "intents": [
+    {
+      "tag": "Timesheet",
+      "patterns": [
+        "Where do i fill my timesheet?",
+        "What is the link of timesheet page?",
+        "Where do i find my timesheet module?"
+      ],
+      "responses": [
+        "CLick <a href ='https://everest.gale.agency/timeSheetChange/' target='_blank'> here </a> to go to Timesheet module"
+      ]
+    },
+    {
+      "tag": "timeoff",
+      "patterns": [
+        "how to apply for vacation",
+        "where is vacation module?"
+      ],
+      "responses": [
+        "Bottom of the  <a href ='https://everest.gale.agency/home/' target='_blank'> page </a>,My Time Off tile under home"
+      ]
+    },
+    {
+      "tag": "VacationBalance",
+      "patterns": [
+        "My vacation balance?",
+        "What is my vacation balance?",
+        "How many remaining vacations do i have?",
+        "How many Accured vacations do i have?",
+        "Do I have any negative vacation balance?",
+        "How many vacations do i have in this year?"
+      ],
+      "responses": [
+        "VACATION_DETAILS"
+      ]
+    },
+    {
+      "tag": "GALE day",
+      "patterns": [
+        "How do i recieve my GALE day?"
+      ],
+      "responses": [
+        "For recieving GALE day, fill the timesheet for that Quarter and ontime submission is required. Only two missed late submissions are allowed per Quarter. Please reach out to everestops@galepartners.com for further queries."
+      ]
+    },
+    {
+      "tag": "Birthday vacation",
+      "patterns": [
+        "How i apply for birthday?"
+      ],
+      "responses": [
+        "Birthday leave can be applied through Everest homepage and Everest profile page. Birthday leave is to be applied on +/-3 days of your birth date."
+      ]
+    },
+    {
+      "tag": "vacation approved in past",
+      "patterns": [
+        "Vacation approved in past needs to be rejected?"
+      ],
+      "responses": [
+        "Request your Reporting manager for rejecting any of your vacation"
+      ]
+    },
+    {
+      "tag": "Access Timesheet",
+      "patterns": [
+        "Not able to fill the timesheet"
+      ],
+      "responses": [
+        "Please check your allocations. Navigate to  Everest homepage to find the Staffing Manager of your project and request for allocation. Once allocation is Approved you will be able to fill the timesheet."
+      ]
+    },
+    {
+      "tag": "Incorrect Timesheet Submission",
+      "patterns": [
+        "I submitted my timesheet incorrectly. What do I do?"
+      ],
+      "responses": [
+        "Don’t panic! You can fix your approved timesheet if you submitted it in the wrong week or if there was an error in the entry. The first step is to contact your Timesheet Approver and ask them to reject your timesheet.Once rejected,  you can re-submit the timesheet again."
+      ]
+    },
+    {
+      "tag": "Allocation Request",
+      "patterns": [
+        "How to request an allocation?"
+      ],
+      "responses": [
+        "If you aren’t seeing the right PID while entering your timesheet, you can request an allocation. There are two ways to request an allocation:First go to the Timesheet page where at the top right of the page you’ll see the Request Allocation button.You can also request an allocation using the Find Staffing Manager and Timesheet Approvers tile displayed under home page"
+      ]
+    },
+    {
+      "tag": "My Staffing Manager",
+      "patterns": [
+        "How to find a staffing manager?"
+      ],
+      "responses": [
+        "On the homepage of Everest, there is a tile called Find Staffing Manager and Timesheet Approvers. Here you’ll be able to search by Client, Opportunity and Project ID (PID) to find the Staffing Manager you’re looking for."
+      ]
+    },
+    {
+      "tag": "View Allocations",
+      "patterns": [
+        "How to view my allocations?"
+      ],
+      "responses": [
+        "You can view your allocations on the homepage of Everest in the tile called My Allocations. This tile shows the client name, project name and the weekly allocation percentage"
+      ]
+    },
+    {
+      "tag": "Sick day",
+      "patterns": [
+        "How do I log a sick day?"
+      ],
+      "responses": [
+        "a)Go to Everest homepage and choose Timesheet from the hamburger menu. b)Click on ‘Add Row’ to get the client drop down.c)Choose the respective client and project from the Client and Project dropdown. d)For GALE Employees select PID 10738. e)For Assembly Employees select PID 12136. f) Please make sure to select the PID and add a Memo while submitting your timesheets for the sick day."
+      ]
+    },
+    {
+      "tag": "Other time off",
+      "patterns": [
+        "How do I submit any other time off for GALE Employees?"
+      ],
+      "responses": [
+        "Any request for other time off which doesn’t fall under your regular vacation policy or GALE Days needs to be submitted directly to HR. For cases such as bereavement leave, short/long-term disability, or critical illness leave, Parental and Maternity leave Please contact hr@galepartners.com"
+      ]
+    },
+    {
+      "tag": "Devops ticket",
+      "patterns": [
+        "Not able to login to VPN?",
+        "Access requests",
+        "Request resources",
+        "Networking request or issue",
+        "Security issues",
+        "Generic Deployment requests or issues",
+        "Login and account creation or issues"
+      ],
+      "responses": [
+        "Click <a href='https://everest.gale.agency/v2/jira/create/' target='_blank'>here</a>to create a Devops helpdesk tickets"
+      ]
+    },
+    {
+      "tag": "Everest helpdesk ticket",
+      "patterns": [
+        "Everest issues",
+        "Everest Queries"
+      ],
+      "responses": [
+        "Click <a href ='https://everest.gale.agency/v2/jira/create/' target='_blank'> here </a> to create an Everest helpdesk ticket"
+      ]
+    },
+    {
+      "tag": "Media helpdesk ticket",
+      "patterns": [
+        "Onboarding",
+        "Trafficking",
+        "Tagging"
+      ],
+      "responses": [
+        "Click <a href ='https://everest.gale.agency/v2/jira/create/' target='_blank'> here </a> to create an Media helpdesk ticket"
+      ]
+    },
+    {
+      "tag": "Contact info",
+      "patterns": [
+        "Help Directory",
+        "Domain leads",
+        "Finance partners"
+      ],
+      "responses": [
+        "Click <a href ='https://everest.GALE.agency/v2/contact/' target='_blank'> here </a>for contact info"
+      ]
+    },
+    {
+      "tag": "Org chart",
+      "patterns": [
+        "Where do i view my Organisation chart",
+        "How do i find my manager according to my domain?",
+        "How do i find my managees?"
+      ],
+      "responses": [
+        "Organisation <a href ='https://everest.GALE.agency/v2/contact/' target='_blank'> chart </a> can be found under the Reports - Org chart section under the hamburger menu."
+      ]
+    },
+    {
+      "tag": "Calendar",
+      "patterns": [
+        "How do i find company stat holiday for the current and previous year?",
+        "Where do i find my calender?",
+        "Calendar based on location at GALE",
+        "Show me the holiday list",
+        "Holiday list for current year"
+      ],
+      "responses": [
+        "Go to home page of Everest and click on Calendar link under My Calender tile"
+      ]
+    },
+    {
+      "tag": "Hello",
+      "patterns": [
+        "How can i help you?"
+      ],
+      "responses": [
+        "Please type your questions below"
+      ]
+    },
+    {
+      "tag": "Hi",
+      "patterns": [
+        "How can i help you?"
+      ],
+      "responses": [
+        "Please type your questions below"
+      ]
+    },
+    {
+      "tag": "Thank you",
+      "patterns": [
+        "Thank you"
+      ],
+      "responses": [
+        "You are welcome"
+      ]
+    }
+  ]
+}
